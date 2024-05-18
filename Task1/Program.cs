@@ -36,3 +36,36 @@ void PrintArray(int[] array)
     }
     Console.Write("]");
 }
+
+int CountPrimeNumbers(int[] array)
+{
+    int count = 0;
+    // реализация второй части задачи
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (IsPrime(array[i]))
+        {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+bool IsPrime(int num)
+{
+    for (int i = 2; i <= Math.Sqrt(num); i++)
+    {
+        if (num % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int[] arr = CreateArrayRndInt(10, 1, 100);
+PrintArray(arr);
+
+int countPrime = CountPrimeNumbers(arr);
+Console.Write($" => {countPrime}");
